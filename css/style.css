@@ -3,11 +3,19 @@
 @import url('https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 
 :root{
+    font-size: 62.5%;
+
     --p1: hsl(158, 36%, 37%);
     --p2: hsl(30, 38%, 92%);
-    --n1: hsl(212, 21%, 14%);
+    --n1: hsl(158, 33%, 19%);
     --n2:hsl(228, 12%, 48%);
-    --n3:hsl(0, 0%, 100%)
+    --n3:hsl(0, 0%, 100%);
+
+    --font1: "Fraunces", serif;
+    --font2: "Montserrat", sans-serif;
+
+    --weight5: 500;
+    --weight7: 700;
 }
 
 *{
@@ -27,29 +35,147 @@ body{
 
 main{
     background-color: var(--n3);
-    width: 310px;
-    height: 620px;
-    border-radius: 10px;
+    width: 33.2rem;
+    height: 59rem;
+    border-radius: 1rem;
     overflow: hidden;
+
+    transition: width .3s, height .3s;
+    transition-timing-function: ease;
 }
 
-figure, figure > img{
-    height: 14rem;
+section{
+    display: flex;
+    flex-flow: column;
+}
+
+.image{
+    background: var(--n2) url(../images/image-product-mobile.jpg) bottom center no-repeat scroll;
+    background-size: cover;
+    height: 23rem;
     width: 100%;
 }
 
+.desc, .prices, .addcart{
+    padding: 0em 2.5em;
+}
 
+figure, figure > img{
+    height: 23rem;
+    width: 100%;
+}
 
+p{
+    font: normal var(--weight5) 1.4rem/150% var(--font2);
+    color: var(--n2);
+    padding: 2rem 0rem;
+    
+}
 
+.perfume > p{
+    text-transform: uppercase;
+    font-size: 1.2rem;
+    letter-spacing: 0.5em;
+    padding-bottom: 1rem;
+}
 
+h1{
+    font: normal var(--weight7) 3rem/100% var(--font1);
+}
 
+.prices{
+    display: flex;
+    align-items: center;
+    padding-bottom: 2rem;
+}
 
+.prices > span > p{
+    display: inline;
+}
 
+.prices > span.price1 > p{
+    font: normal var(--weight7) 3rem/100% var(--font1);
+    color: var(--p1);
+}
+
+.prices > span.pricedel > p{
+    text-decoration: line-through;
+    margin-left: 2rem;
+}
+
+.addcart{
+    display: flex;
+    align-items: center;
+}
+
+.addcart > button{
+    background-color: var(--p1);
+    width: 100%;
+    height:5rem;
+    border: none;
+    border-radius: 1rem;
+    font: normal var(--weight5) 1.4rem/150% var(--font2);
+    color: var(--n3);
+}
+
+.addcart > button > img{
+    padding: 0rem 1rem;
+    transform: translateY(20%);
+}
+
+.addcart > button:hover{
+    background-color: var(--n1);
+    cursor: pointer;
+}
 
 .attribution {
-    font-size: 11px; 
-    text-align: center; 
+    text-align: center;
+    font-family: var(--font2);
+    font-size: 1rem;
 }
 .attribution a { 
     color: hsl(228, 45%, 44%);
+}
+
+@media screen and (min-width: 600px) {
+    main{
+        width: 58rem;
+        height: 45rem;
+        display: flex;
+        flex-flow: row;
+    }
+    
+    .image{
+        width: 50%;
+        height: 100%;
+        background: var(--n2) url(../images/image-product-desktop.jpg) bottom center no-repeat scroll;
+        background-size: cover;
+        flex-shrink: 0;
+    }
+
+    section{
+        width: 50%;
+        height: 100%;
+        flex-shrink: 0;
+    }
+
+    .desc, .prices, .addcart{
+        padding: 0rem 3rem;
+    }
+
+    .perfume > p{
+        margin: 1rem 0rem;
+    }
+
+    .desc > h1{
+        max-width: 10ch;
+    }
+
+    .desc > p {
+        margin: 1rem 0rem;
+    }
+
+    .prices{
+        margin-bottom: 3rem;
+    }
 }
